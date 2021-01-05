@@ -70,8 +70,19 @@ $('#loginFormdata').on('submit',function(e){
    if(res.status!==0){
    return layer.msg(res.message)
    }
-   layer.msg('登录成功')
+
+   //延时效果
+   localStorage.setItem('token',res.token)
+   layer.msg('登录成功',
+   {
+     time:2000
+   },
+   function(){
+     location.href='index.html'
    }
+   )
+   }
+
  })
 })
 })
